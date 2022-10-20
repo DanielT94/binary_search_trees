@@ -28,7 +28,7 @@ class Tree
     root_node
   end
 
-  def insert(value, node = @root)
+  def insert(value, node = root)
     return if value == node.data
     
     if value < node.data
@@ -67,6 +67,29 @@ class Tree
       node
     end
   end
+
+  def find(value, node = root)
+    #root is null or value is at root
+    return node if node.nil? || node.data == value
+
+    #if value is less than node find in left tree else find in right tree
+    value < node.data ? find(value, node.left) : find(value, node.right)
+  end
+
+  def level_order(node = root, queue = [])
+    #print node data
+    print "#{node.data}, "
+    #add left node to queue
+    queue << node.left unless node.left.nil?
+    #add right node to queue
+    queue << node.right unless node.right.nil?
+    return if queue.empty?
+    
+    #recur through tree starting with first node in queue
+    level_order(queue.shift, queue)
+  end
+
+  
 end
 
 
