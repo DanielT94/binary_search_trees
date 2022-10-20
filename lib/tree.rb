@@ -9,6 +9,13 @@ class Tree
   end
 
   def build_tree(data)
-    
+    return if array.empty?
+
+    mid = (array.size - 1) / 2
+    root_node = Node.new(array[mid])
+
+    root_node.left = build_tree(array[0..mid])
+    root_node.right = build_tre(array[(mid + 1)..-1])
+    root_node
   end
 
