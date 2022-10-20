@@ -115,6 +115,19 @@ class Tree
     postorder(node.right)
     print "#{node.data}, "
   end
+
+  def height(node = root)
+    unless node.nil? || node == root
+      node = (node.instance_of?(Node) ? find(node.data) : find(node))
+    end
+
+    return -1 if node.nil?
+
+    [height(node.left), height(node.right)].max + 1
+  end
+
+  def depth()
+  end
 end
 
 
