@@ -4,7 +4,7 @@ This is a project from the ruby section of [The Odin Project](https://www.theodi
 ## Description
 The aim of this project was to create a balanced BST and methods that can act on it.
 
-## Tables
+## Methods
 
 | Method | Description |
 | ------------- |-------------|
