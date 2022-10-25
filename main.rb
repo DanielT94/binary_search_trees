@@ -6,13 +6,13 @@ tree = Tree.new(array)
 tree.pretty_print
 p tree.balanced?
 tree.level_order
-p //
+p(//)
 tree.preorder
-p //
+p(//)
 tree.inorder
-p //
+p(//)
 tree.postorder
-p //
+p(//)
 tree.insert(104)
 tree.insert(124)
 tree.insert(115)
@@ -20,10 +20,10 @@ p tree.balanced?
 tree.rebalance
 p tree.balanced?
 tree.level_order
-p //
+p(//)
 tree.preorder
-p //
+p(//)
 tree.inorder
-p //
+p(//)
 tree.postorder
-p //
+p(//)
