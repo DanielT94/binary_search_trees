@@ -126,8 +126,42 @@ class Tree
     [height(node.left), height(node.right)].max + 1
   end
 
-  def depth()
+  def depth(node)
+    return nil if node.nil?
+
+    curr_node = root
+    count = 0
+    until curr_node.data == node.data
+      count += 1
+      curr_node = curr_node.left if node.data < curr_node.data
+      curr_node = curr_node.right if node.data > curr_node.data
+    end
+
+    count
+  end
+
+  def balanced?(node = root)
+    return true if node.nil?
+
+    left_height = height(node.left)
+    right_height = height(node.right)
+
+    return true if (left_height - right_height).abs <= 1 && balanced?(node.left) && balanced?(node.right)
+
+    false
+  end
+
+  def rebalance
+    self.data = inorder_array
+    self.root = build_tree(data)
+  end
+
+  def inorder_array(node = root, array = [])
+    unless node.nil?
+      inorder_array(node.left, array)
+      array << node.data
+      inorder_array(node.right, array)
+    end
+    array
   end
 end
-
-
